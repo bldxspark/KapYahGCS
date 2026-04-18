@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center">
   <img src="https://raw.githubusercontent.com/bldxspark/KapYahGCS/main/resources/KapYahGCS.png" alt="KapYah GCS Logo" width="500">
 </p>
@@ -145,3 +146,11 @@ This project follows applicable licensing terms of its underlying components and
 ## Acknowledgment
 
 This project builds upon the open-source QGroundControl platform and follows its development and licensing guidelines.
+=======
+# KapYahGCS
+
+
+
+
+nice
+>>>>>>> b1b5ea92e4f4b61797e7afa87b7aeae77db1c9d5
