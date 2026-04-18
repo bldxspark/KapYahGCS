@@ -1,61 +1,147 @@
-
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Dronecode/UX-Design/35d8148a8a0559cd4bcf50bfa2c94614983cce91/QGC/Branding/Deliverables/QGC_RGB_Logo_Horizontal_Positive_PREFERRED/QGC_RGB_Logo_Horizontal_Positive_PREFERRED.svg" alt="QGroundControl Logo" width="500">
+  <img src="https://raw.githubusercontent.com/bldxspark/KapYahGCS/main/resources/KapYahGCS.png" alt="KapYah GCS Logo" width="500">
 </p>
 
-<p align="center">
-  <a href="https://github.com/mavlink/QGroundControl/releases">
-    <img src="https://img.shields.io/github/v/release/mavlink/QGroundControl" alt="Latest Release">
-  </a>
-</p>
+---
 
-*QGroundControl* (QGC) is a highly intuitive and powerful Ground Control Station (GCS) designed for UAVs. Whether you're a first-time pilot or an experienced professional, QGC provides a seamless user experience for flight control and mission planning, making it the go-to solution for any *MAVLink-enabled drone*.
+# KapYah Ground Control (KapYah GCS)
+
+KapYah Ground Control is a Ground Control Station application developed for **KapYah Industries Pvt. Ltd.** It is designed to provide a stable, efficient, and streamlined interface for UAV control, mission management, and operational workflows on Android devices.
+
+This software is part of the KapYah product ecosystem and is intended to support real-world flight operations, configuration, monitoring, and diagnostics for MAVLink-enabled systems.
 
 ---
 
-### 🌟 *Why Choose QGroundControl?*
+## Download
 
-- *🚀 Ease of Use*: A beginner-friendly interface designed for smooth operation without sacrificing advanced features for pros.
-- *✈️ Comprehensive Flight Control*: Full flight control and mission management for *PX4* and *ArduPilot* powered UAVs.
-- *🛠️ Mission Planning*: Easily plan complex missions with a simple drag-and-drop interface.
+- [View Latest Release](https://github.com/bldxspark/KapYahGCS/releases)
+- APK: `KapYah-GCS-v1.0.0.apk`
 
-🔍 For a deeper dive into using QGC, check out the [User Manual](https://docs.qgroundcontrol.com/en/) – although thanks to QGC's intuitive UI, you may not even need it!
+### Android Installation Note
 
----
+When installing the APK manually, Android may show a warning such as *"App not installed"* or block installation.
 
-### 🚁 *Key Features*
+This can occur due to:
+- unsigned or newly signed APKs
+- restricted install permissions
+- Play Protect warnings
 
-- 🕹️ *Full Flight Control*: Supports all *MAVLink drones*.
-- ⚙️ *Vehicle Setup*: Tailored configuration for *PX4* and *ArduPilot* platforms.
-- 🔧 *Fully Open Source*: Customize and extend the software to suit your needs.
-
-🎯 Check out the latest updates in our [New Features and Release Notes](https://github.com/mavlink/qgroundcontrol/blob/master/CHANGELOG.md).
-
----
-
-### 💻 *Get Involved!*
-
-QGroundControl is *open-source*, meaning you have the power to shape it! Whether you're fixing bugs, adding features, or customizing for your specific needs, QGC welcomes contributions from the community.
-
-🛠️ Start building today with our [Developer Guide](https://dev.qgroundcontrol.com/en/) and [build instructions](https://dev.qgroundcontrol.com/en/getting_started/).
+If you trust the source:
+- enable **Install from unknown sources**
+- allow installation via USB (if using ADB)
+- proceed with installation when prompted
 
 ---
 
-### 🔗 *Useful Links*
+## Company
 
-- 🌐 [Official Website](http://qgroundcontrol.com)
-- 📘 [User Manual](https://docs.qgroundcontrol.com/en/)
-- 🛠️ [Developer Guide](https://dev.qgroundcontrol.com/en/)
-- 💬 [Discussion & Support](https://docs.qgroundcontrol.com/en/Support/Support.html)
-- 🤝 [Contributing](https://dev.qgroundcontrol.com/en/contribute/)
-- 📜 [License Information](https://github.com/mavlink/qgroundcontrol/blob/master/.github/COPYING.md)
+- Company: **KapYah Industries Pvt. Ltd.**
+- Website: `https://www.kapyah.com/`
+- Product: **KapYah Ground Control**
 
 ---
 
-With QGroundControl, you're in full command of your UAV, ready to take your missions to the next level.
+## Developed By
+
+- **Durgesh Tiwari**  
+- Embedded Software Engineer  
+- KapYah Industries Pvt. Ltd.  
+- GitHub: https://github.com/bldxspark  
+- LinkedIn: https://www.linkedin.com/in/durgesh-tiwari-9bab82238  
+- Email: durgeshtiwari000x@gmail.com  
 
 ---
 
-### Stargazers over time
+## Product Overview
 
-[![Stargazers over time](https://starchart.cc/mavlink/qgroundcontrol.svg?variant=adaptive)](https://starchart.cc/mavlink/qgroundcontrol)
+KapYah Ground Control provides:
+
+- UAV communication and control interface  
+- mission planning and execution workflows  
+- system status monitoring and telemetry visualization  
+- Android-optimized UI for mobile and tablet devices  
+- integrated logging and diagnostics support  
+
+---
+
+## Core Features
+
+- KapYah-branded Ground Control Station interface  
+- stable MAVLink communication support  
+- responsive layouts for phone and tablet  
+- integrated logging system with dedicated storage directory  
+- configurable settings panel using structured configuration  
+- customized UI components for streamlined workflows  
+
+---
+
+## Logging System
+
+KapYah GCS includes a structured logging system:
+
+- logs stored in a dedicated KapYah GCS directory  
+- log save path visible in application settings  
+- integrated file dialog for selecting save location  
+- designed for debugging, diagnostics, and field operations  
+
+---
+
+## Platform Support
+
+- Android (primary deployment platform)  
+- optimized for:
+  - mobile devices  
+  - tablets  
+
+---
+
+## Customization Scope
+
+This project includes multiple enhancements such as:
+
+- application-level branding and UI customization  
+- layout fixes and responsiveness improvements  
+- settings panel customization using JSON-driven configuration  
+- logging system integration and UI exposure  
+- Android-specific behavior adjustments  
+
+---
+
+## Ownership
+
+- Product owner: **KapYah Industries Pvt. Ltd.**
+- Product identity and branding: **KapYah Industries Pvt. Ltd.**
+- Primary developer: **Durgesh Tiwari**
+
+---
+
+## Repository Hygiene
+
+This repository excludes:
+
+- build outputs  
+- APK files  
+- keystore files  
+- temporary logs and generated artifacts  
+
+Only source, configuration, and required assets are maintained.
+
+---
+
+## Contact
+
+- Company website: https://www.kapyah.com/  
+- Company email: contact@kapyah.com  
+- Developer email: durgeshtiwari000x@gmail.com  
+
+---
+
+## License
+
+This project follows applicable licensing terms of its underlying components and associated dependencies.
+
+---
+
+## Acknowledgment
+
+This project builds upon the open-source QGroundControl platform and follows its development and licensing guidelines.
