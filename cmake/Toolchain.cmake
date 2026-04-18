@@ -41,10 +41,11 @@ include(CompilerWarnings)
 
 # set(CMAKE_EXPORT_BUILD_DATABASE ON)
 
-if(CMAKE_EXPORT_COMPILE_COMMANDS AND NOT WIN32)
+# Disabled on Windows hosts to avoid symlink privilege errors when cross-building
+if(CMAKE_EXPORT_COMPILE_COMMANDS AND NOT CMAKE_HOST_WIN32)
     file(CREATE_LINK
-        "${CMAKE_BINARY_DIR}/compile_commands.json"
-        "${CMAKE_SOURCE_DIR}/compile_commands.json"
+        ${CMAKE_BINARY_DIR}/compile_commands.json
+        ${CMAKE_SOURCE_DIR}/compile_commands.json
         SYMBOLIC
     )
 endif()

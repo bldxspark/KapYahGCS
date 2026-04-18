@@ -73,7 +73,6 @@ target_sources(${CMAKE_PROJECT_NAME}
         QGCApplication.h
 )
 
-
 # ----------------------------------------------------------------------------
 # Include Directories
 # ----------------------------------------------------------------------------
@@ -197,6 +196,17 @@ set_target_properties(${CMAKE_PROJECT_NAME}
 # Precompiled Headers
 # ----------------------------------------------------------------------------
 target_precompile_headers(${CMAKE_PROJECT_NAME} PRIVATE pch.h)
+
+# ----------------------------------------------------------------------------
+# MSVC fixes
+# ----------------------------------------------------------------------------
+if(MSVC)
+    target_compile_options(${CMAKE_PROJECT_NAME}
+        PRIVATE
+            /Zc:preprocessor
+            /bigobj
+    )
+endif()
 
 # ============================================================================
 # Custom Build Configuration

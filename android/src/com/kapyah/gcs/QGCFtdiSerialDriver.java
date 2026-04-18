@@ -1,4 +1,4 @@
-package org.mavlink.qgroundcontrol;
+package com.kapyah.gcs;
 
 import android.hardware.usb.UsbConstants;
 import android.hardware.usb.UsbDevice;

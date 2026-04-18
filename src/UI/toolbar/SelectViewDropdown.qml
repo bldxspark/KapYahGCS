@@ -75,7 +75,7 @@ ToolIndicatorPage {
                 implicitHeight: root._toolButtonHeight
                 Layout.fillWidth: true
                 text: qsTr("Settings")
-                imageResource: "/res/QGCLogoWhite.svg"
+                imageResource: "/res/gear-black.svg"
                 visible: !QGroundControl.corePlugin.options.combineSettingsAndSetup
                 onClicked: {
                     if (mainWindow.allowViewSwitch()) {
@@ -98,61 +98,28 @@ ToolIndicatorPage {
                 }
             }
 
+            // 🔥 KapYah Branding (Replaces Version Block)
             ColumnLayout {
-                id: versionColumnLayout
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
-                spacing: 0
+                spacing: 2
 
                 QGCLabel {
-                    id: versionLabel
                     Layout.fillWidth: true
                     horizontalAlignment: Text.AlignHCenter
-                    text: qsTr("%1 Version").arg(QGroundControl.appName)
-                    font.pointSize: ScreenTools.smallFontPointSize
-                    wrapMode: QGCLabel.WordWrap
+                    text: "KapYah Ground Control Station"
+                    font.bold: true
+                    wrapMode: Text.NoWrap
                 }
 
                 QGCLabel {
                     Layout.fillWidth: true
                     horizontalAlignment: Text.AlignHCenter
-                    text: QGroundControl.qgcVersion
-                    font.pointSize: ScreenTools.smallFontPointSize
-                    wrapMode: QGCLabel.WrapAnywhere
-                }
-
-                QGCLabel {
-                    Layout.fillWidth: true
-                    horizontalAlignment: Text.AlignHCenter
-                    text: QGroundControl.qgcAppDate
-                    font.pointSize: ScreenTools.smallFontPointSize
-                    wrapMode: QGCLabel.WrapAnywhere
-                    visible: QGroundControl.qgcDailyBuild
-
-                    QGCMouseArea {
-                        anchors.topMargin: -(parent.y - versionLabel.y)
-                        anchors.fill: parent
-
-                        onClicked: (mouse) => {
-                            if (mouse.modifiers & Qt.ControlModifier) {
-                                QGroundControl.corePlugin.showTouchAreas = !QGroundControl.corePlugin.showTouchAreas
-                                showTouchAreasNotification.open()
-                            } else if (ScreenTools.isMobile || mouse.modifiers & Qt.ShiftModifier) {
-                                mainWindow.closeIndicatorDrawer()
-                                if (!QGroundControl.corePlugin.showAdvancedUI) {
-                                    advancedModeOnConfirmation.open()
-                                } else {
-                                    advancedModeOffConfirmation.open()
-                                }
-                            }
-                        }
-
-                        // This allows you to change this on mobile
-                        onPressAndHold: {
-                            QGroundControl.corePlugin.showTouchAreas = !QGroundControl.corePlugin.showTouchAreas
-                            showTouchAreasNotification.open()
-                        }
-                    }
+                    text: "A product by KapYah Industries Pvt. Ltd."
+                    wrapMode: Text.NoWrap
+                    elide: Text.ElideRight
+                    font.pointSize: ScreenTools.smallFontPointSize - 1
+                    opacity: 0.8
                 }
             }
         }

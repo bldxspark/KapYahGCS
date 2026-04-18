@@ -5,26 +5,26 @@
 -keep class com.falsinsoft.qtandroidtools.** { *; }
 
 # QGC classes with native methods
--keepclasseswithmembers class org.mavlink.qgroundcontrol.QGCActivity {
+-keepclasseswithmembers class com.kapyah.gcs.QGCActivity {
     native <methods>;
 }
--keepclasseswithmembers class org.mavlink.qgroundcontrol.QGCUsbSerialManager {
+-keepclasseswithmembers class com.kapyah.gcs.QGCUsbSerialManager {
     native <methods>;
 }
 # Static methods are resolved from C++ by method name/signature.
--keepclassmembers class org.mavlink.qgroundcontrol.QGCActivity {
+-keepclassmembers class com.kapyah.gcs.QGCActivity {
     public static *;
 }
--keepclassmembers class org.mavlink.qgroundcontrol.QGCUsbSerialManager {
+-keepclassmembers class com.kapyah.gcs.QGCUsbSerialManager {
     public static *;
 }
--keep class org.mavlink.qgroundcontrol.QGCUsbId { *; }
--keep class org.mavlink.qgroundcontrol.QGCUsbSerialProber { *; }
--keep class org.mavlink.qgroundcontrol.QGCLogger { *; }
--keep class org.mavlink.qgroundcontrol.QGCFtdiSerialDriver { *; }
--keep class org.mavlink.qgroundcontrol.QGCFtdiSerialDriver$QGCFtdiSerialPort { *; }
--keep class org.mavlink.qgroundcontrol.QGCFtdiDriver { *; }
--keep class org.mavlink.qgroundcontrol.QGCSDLManager { *; }
+-keep class com.kapyah.gcs.QGCUsbId { *; }
+-keep class com.kapyah.gcs.QGCUsbSerialProber { *; }
+-keep class com.kapyah.gcs.QGCLogger { *; }
+-keep class com.kapyah.gcs.QGCFtdiSerialDriver { *; }
+-keep class com.kapyah.gcs.QGCFtdiSerialDriver$QGCFtdiSerialPort { *; }
+-keep class com.kapyah.gcs.QGCFtdiDriver { *; }
+-keep class com.kapyah.gcs.QGCSDLManager { *; }
 
 # SDL - native method stubs required for JNI registration
 -keep class org.libsdl.app.** { *; }

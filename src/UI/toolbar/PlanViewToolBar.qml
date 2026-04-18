@@ -34,11 +34,14 @@ Rectangle {
     }
 
     QGCToolBarButton {
-        id: qgcButton
-        height: parent.height
-        icon.source: "/res/QGCLogoFull.svg"
-        logo: true
-        onClicked: mainWindow.showToolSelectDialog()
+        id:                 qgcButton
+        Layout.fillHeight:  true
+        Layout.leftMargin:  ScreenTools.defaultFontPixelWidth * 1
+        icon.source:        qgcPal.globalTheme === QGCPalette.Dark
+                            ? "qrc:/res/QGCLogoBlack.png"
+                            : "qrc:/res/QGCLogoFull.png"
+        logo:               true
+        onClicked:          mainWindow.showToolSelectDialog()
     }
 
     QGCFlickable {

@@ -268,6 +268,14 @@ Item {
                     }
                 }
 
+               QGCLabel {
+                    anchors.left:   parent.left
+                    anchors.right:  parent.right
+                    wrapMode:       Text.WordWrap
+                    text:           qsTr("Logs will be saved to: %1").arg(QGroundControl.settingsManager.appSettings.logSavePath)
+                    color:          qgcPal.text
+               }
+
                 QGCLabel {
                     id:             replaceMessage
                     anchors.left:   parent.left
@@ -277,6 +285,7 @@ Item {
                     visible:        false
                     color:          qgcPal.warningText
                 }
+
 
                 SectionHeader {
                     anchors.left:   parent.left

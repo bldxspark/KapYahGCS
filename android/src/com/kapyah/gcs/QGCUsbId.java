@@ -1,4 +1,4 @@
-package org.mavlink.qgroundcontrol;
+package com.kapyah.gcs;
 
 public final class QGCUsbId {
 

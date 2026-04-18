@@ -1,4 +1,4 @@
-package org.mavlink.qgroundcontrol;
+package com.kapyah.gcs;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

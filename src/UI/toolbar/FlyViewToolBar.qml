@@ -16,12 +16,12 @@ Item {
 
     property var    _activeVehicle:     QGroundControl.multiVehicleManager.activeVehicle
     property bool   _communicationLost: _activeVehicle ? _activeVehicle.vehicleLinkManager.communicationLost : false
-    property color  _mainStatusBGColor: qgcPal.brandingPurple
+    property color  _mainStatusBGColor: "#ff3b30"
     property real   _leftRightMargin:   ScreenTools.defaultFontPixelWidth * 0.75
     property var    _guidedController:  globals.guidedControllerFlyView
 
     function dropMainStatusIndicatorTool() {
-        mainStatusIndicator.dropMainStatusIndicator();
+        mainStatusIndicator.dropMainStatusIndicator()
     }
 
     QGCPalette { id: qgcPal }
@@ -41,7 +41,6 @@ Item {
                 width:  leftPanelLayout.implicitWidth
                 height: parent.height
 
-                // Gradient background behind Q button and main status indicator
                 Rectangle {
                     id:         gradientBackground
                     height:     parent.height
@@ -50,13 +49,12 @@ Item {
 
                     gradient: Gradient {
                         orientation: Gradient.Horizontal
-                        GradientStop { position: 0; color: _mainStatusBGColor }
-                        //GradientStop { position: qgcButton.x + qgcButton.width; color: _mainStatusBGColor }
-                        GradientStop { position: 1; color: qgcPal.window }
+                        GradientStop { position: 0.0; color: _mainStatusBGColor }
+                        GradientStop { position: 0.5; color: _activeVehicle ? _mainStatusBGColor : "#ff8a80" }
+                        GradientStop { position: 1.0; color: qgcPal.window }
                     }
                 }
 
-                // Standard toolbar background to the right of the gradient
                 Rectangle {
                     anchors.left:   gradientBackground.right
                     anchors.right:  parent.right
@@ -72,14 +70,27 @@ Item {
                     RowLayout {
                         id:         mainStatusLayout
                         height:     parent.height
-                        spacing:    0
+                        spacing:    ScreenTools.defaultFontPixelWidth * 0.75
 
                         QGCToolBarButton {
                             id:                 qgcButton
                             Layout.fillHeight:  true
-                            icon.source:        "/res/QGCLogoFull.svg"
+                            Layout.leftMargin:  ScreenTools.defaultFontPixelWidth * 1
+                            icon.source:        qgcPal.globalTheme === QGCPalette.Dark
+                                                ? "qrc:/res/QGCLogoBlack.png"
+                                                : "qrc:/res/QGCLogoFull.png"
                             logo:               true
                             onClicked:          mainWindow.showToolSelectDialog()
+                        }
+
+                        QGCLabel {
+                            id:                     appTitleLabel
+                            Layout.alignment:       Qt.AlignVCenter
+                            text:                   qsTr("KapYah GCS  ")
+                            font.pointSize:         ScreenTools.largeFontPointSize
+                            font.bold:              true
+                            color:                  qgcPal.text
+                            visible:                _activeVehicle === null
                         }
 
                         MainStatusIndicator {
@@ -101,10 +112,13 @@ Item {
                     }
                 }
             }
+
             Item {
                 id:     centerPanel
-                // center panel takes up all remaining space in toolbar between left and right panels
-                width:  Math.max(guidedActionConfirm.visible ? guidedActionConfirm.width : 0, control.width - (leftPanel.width + rightPanel.width))
+                width:  Math.max(
+                            guidedActionConfirm.visible ? guidedActionConfirm.width : 0,
+                            control.width - (leftPanel.width + rightPanel.width)
+                        )
                 height: parent.height
 
                 Rectangle {
@@ -123,9 +137,12 @@ Item {
             }
 
             Item {
-                id:     rightPanel
-                width:  flyViewIndicators.width
-                height: parent.height
+                id:      rightPanel
+                width:   _activeVehicle !== null
+                         ? (flyViewIndicators.width + ScreenTools.defaultFontPixelWidth * (ScreenTools.isMobile ? 30 : 58))
+                         : 0
+                height:  parent.height
+                visible: _activeVehicle !== null
 
                 Rectangle {
                     anchors.fill:   parent
@@ -133,20 +150,42 @@ Item {
                 }
 
                 FlyViewToolBarIndicators {
-                    id:     flyViewIndicators
-                    height: parent.height
+                    id:                     flyViewIndicators
+                    height:                 parent.height
+                    anchors.left:           parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
+                Item {
+                    id:                     logoContainer
+                    anchors.right:          parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    width:                  ScreenTools.isMobile
+                                            ? ScreenTools.defaultFontPixelWidth * 26
+                                            : ScreenTools.defaultFontPixelWidth * 32
+                    height:                 parent.height
+
+                    Image {
+                        id: kapyahGCSLogo
+                        anchors.fill: parent
+                        source: "qrc:/res/KapYahGCS.png"
+                        visible: _activeVehicle !== null
+                        fillMode: Image.PreserveAspectFit
+                        smooth: true
+                        mipmap: true
+                        cache: true
+                    }
                 }
             }
         }
     }
 
-    // The guided action message display is outside of the GuidedActionConfirm control so that it doesn't end up as
-    // part of the Flickable
     Rectangle {
         id:                         guidedActionMessageDisplay
         anchors.top:                control.bottom
         anchors.topMargin:          _margins
-        x:                          control.mapFromItem(guidedActionConfirm.parent, guidedActionConfirm.x, 0).x + (guidedActionConfirm.width - guidedActionMessageDisplay.width) / 2
+        x:                          control.mapFromItem(guidedActionConfirm.parent, guidedActionConfirm.x, 0).x
+                                    + (guidedActionConfirm.width - guidedActionMessageDisplay.width) / 2
         width:                      messageLabel.contentWidth + (_margins * 2)
         height:                     messageLabel.contentHeight + (_margins * 2)
         color:                      qgcPal.windowTransparent

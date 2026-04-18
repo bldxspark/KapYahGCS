@@ -10,8 +10,8 @@ import QGroundControl.Controls
 Button {
     id:                 button
     height:             ScreenTools.defaultFontPixelHeight * 3
-    leftPadding:        _horizontalMargin
-    rightPadding:       _horizontalMargin
+    leftPadding:        logo ? 0 : _horizontalMargin
+    rightPadding:       logo ? 0 : _horizontalMargin
     checkable:          false
 
     property bool logo: false
@@ -22,24 +22,39 @@ Button {
 
     background: Rectangle {
         anchors.fill:   parent
-        color:          button.checked ? qgcPal.buttonHighlight : Qt.rgba(0,0,0,0)
+        color:          button.checked ? qgcPal.buttonHighlight : Qt.rgba(0, 0, 0, 0)
         border.color:   "red"
         border.width:   QGroundControl.corePlugin.showTouchAreas ? 3 : 0
     }
 
     contentItem: Row {
-        spacing:                ScreenTools.defaultFontPixelWidth
+        spacing:                logo ? 0 : ScreenTools.defaultFontPixelWidth
         anchors.verticalCenter: button.verticalCenter
-        QGCColoredImage {
-            id:                     _icon
-            height:                 ScreenTools.defaultFontPixelHeight * 2
-            width:                  height
-            sourceSize.height:      parent.height
-            fillMode:               Image.PreserveAspectFit
-            color:                  logo ? "transparent" : (button.checked ? qgcPal.buttonHighlightText : qgcPal.buttonText)
-            source:                 button.icon.source
+
+        Item {
+            height: ScreenTools.defaultFontPixelHeight * 2
+            width:  height
             anchors.verticalCenter: parent.verticalCenter
+
+            Image {
+                visible: logo
+                anchors.fill: parent
+                fillMode: Image.PreserveAspectFit
+                source: button.icon.source
+                smooth: true
+                mipmap: true
+            }
+
+            QGCColoredImage {
+                visible: !logo
+                anchors.fill: parent
+                sourceSize.height: parent.height
+                fillMode: Image.PreserveAspectFit
+                color: button.checked ? qgcPal.buttonHighlightText : qgcPal.buttonText
+                source: button.icon.source
+            }
         }
+
         Label {
             id:                     _label
             visible:                text !== ""

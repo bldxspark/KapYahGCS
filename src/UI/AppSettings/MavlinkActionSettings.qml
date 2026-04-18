@@ -8,7 +8,7 @@ SettingsGroupLayout {
     Layout.fillWidth:       true
     Layout.preferredWidth:  ScreenTools.defaultFontPixelWidth * 35
     heading:                qsTr("MAVLink Actions")
-    headingDescription:     qsTr("Action JSON files should be created in the '%1' folder.").arg(QGroundControl.settingsManager.appSettings.mavlinkActionsSavePath)
+    //headingDescription:     qsTr("Action JSON files should be created in the '%1' folder.").arg(QGroundControl.settingsManager.appSettings.mavlinkActionsSavePath)
 
     property var _mavlinkActionsSettings: QGroundControl.settingsManager.mavlinkActionsSettings
 

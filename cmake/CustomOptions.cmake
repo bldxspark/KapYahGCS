@@ -12,13 +12,13 @@ include(BuildConfig)
 # Application Metadata
 # ============================================================================
 
-set(QGC_APP_NAME "QGroundControl" CACHE STRING "Application name")
+set(QGC_APP_NAME "KapYahGroundControl" CACHE STRING "Application name")
 string(TIMESTAMP _copyright_year "%Y")
-set(QGC_APP_COPYRIGHT "Copyright (c) ${_copyright_year} QGroundControl. All rights reserved." CACHE STRING "Copyright notice")
-set(QGC_APP_DESCRIPTION "Open Source Ground Control App" CACHE STRING "Application description")
-set(QGC_ORG_NAME "QGroundControl" CACHE STRING "Organization name")
-set(QGC_ORG_DOMAIN "qgroundcontrol.com" CACHE STRING "Organization domain")
-set(QGC_PACKAGE_NAME "org.mavlink.qgroundcontrol" CACHE STRING "Package identifier")
+set(QGC_APP_COPYRIGHT "Copyright (c) ${_copyright_year} KapYah Industries Pvt. Ltd. All rights reserved." CACHE STRING "Copyright notice")
+set(QGC_APP_DESCRIPTION "KapYah Ground Control Station" CACHE STRING "Application description")
+set(QGC_ORG_NAME "KapYah Industries Pvt. Ltd." CACHE STRING "Organization name")
+set(QGC_ORG_DOMAIN "kapyah.com" CACHE STRING "Organization domain")
+set(QGC_PACKAGE_NAME "com.kapyah.gcs" CACHE STRING "Package identifier")
 
 # Settings version - increment to clear stored settings on next boot after incompatible changes
 set(QGC_SETTINGS_VERSION "9" CACHE STRING "Settings schema version")

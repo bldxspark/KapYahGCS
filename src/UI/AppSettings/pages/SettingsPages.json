@@ -5,7 +5,7 @@
         {
             "name": "General",
             "qml": "GeneralSettings.qml",
-            "icon": "qrc:/res/QGCLogoWhite.svg",
+            "icon": "qrc:/res/QGCLogoBlack.svg",
             "pageDefinition": "General.SettingsUI.json"
         },
         {
@@ -93,27 +93,6 @@
             "name": "Help",
             "qml": "HelpSettings.qml",
             "icon": "qrc:/InstrumentValueIcons/question.svg"
-        },
-        {
-            "divider": true
-        },
-        {
-            "name": "Mock Link",
-            "qml": "MockLink.qml",
-            "icon": "qrc:/InstrumentValueIcons/drone.svg",
-            "visible": "ScreenTools.isDebug"
-        },
-        {
-            "name": "Debug",
-            "qml": "DebugWindow.qml",
-            "icon": "qrc:/InstrumentValueIcons/bug.svg",
-            "visible": "ScreenTools.isDebug"
-        },
-        {
-            "name": "Palette Test",
-            "qml": "QmlTest.qml",
-            "icon": "qrc:/InstrumentValueIcons/photo.svg",
-            "visible": "ScreenTools.isDebug"
-        }
+        }   
     ]
 }

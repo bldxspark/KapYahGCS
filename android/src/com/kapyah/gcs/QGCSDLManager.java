@@ -1,4 +1,4 @@
-package org.mavlink.qgroundcontrol;
+package com.kapyah.gcs;
 
 import android.app.Activity;
 import android.view.InputDevice;

@@ -12,7 +12,7 @@ RowLayout {
     property bool   _armed:             _activeVehicle ? _activeVehicle.armed : false
     property real   _margins:           ScreenTools.defaultFontPixelWidth
     property real   _spacing:           ScreenTools.defaultFontPixelWidth / 2
-    property bool   _allowForceArm:      false
+    property bool   _allowForceArm:     false
     property bool   _healthAndArmingChecksSupported: _activeVehicle ? _activeVehicle.healthAndArmingCheckReport.supported : false
     property bool   _vehicleFlies:      _activeVehicle ? _activeVehicle.airShip || _activeVehicle.fixedWing || _activeVehicle.vtol || _activeVehicle.multiRotor : false
     property var    _vehicleInAir:      _activeVehicle ? _activeVehicle.flying || _activeVehicle.landing : false
@@ -32,14 +32,14 @@ RowLayout {
         verticalAlignment:  Text.AlignVCenter
         text:               mainStatusText()
         color:              qgcPal.text
-        font.pointSize:     ScreenTools.largeFontPointSize
+        font.pointSize:     ScreenTools.defaultFontPointSize
 
-        property string _commLostText:      qsTr("Comms Lost")
-        property string _readyToFlyText:    qsTr("Ready")
-        property string _notReadyToFlyText: qsTr("Not Ready")
-        property string _disconnectedText:  qsTr("Disconnected - Click to manually connect")
-        property string _armedText:         qsTr("Armed")
-        property string _flyingText:        qsTr("Flying")
+        property string _commLostText:      qsTr("Connection Lost")
+        property string _readyToFlyText:    qsTr("Ready to Operate")
+        property string _notReadyToFlyText: qsTr("System Not Ready")
+        property string _disconnectedText:  qsTr("|   Disconnected • Tap to Manually Connect")
+        property string _armedText:         qsTr("System Armed")
+        property string _flyingText:        qsTr("In Flight")
         property string _landingText:       qsTr("Landing")
 
         function mainStatusText() {
@@ -101,10 +101,10 @@ RowLayout {
                         }
                     }
                 }
-            } else {
-                _mainStatusBGColor = qgcPal.brandingPurple
-                return mainStatusLabel._disconnectedText
-            }
+            }  else {
+                       _mainStatusBGColor = "#ff3b30"
+                    return mainStatusLabel._disconnectedText
+    }
         }
 
         QGCColoredImage {
@@ -117,7 +117,7 @@ RowLayout {
             color:                  getIconColor()
             sourceSize.width:       width
             fillMode:               Image.PreserveAspectFit
-            visible:                _activeVehicle && _activeVehicle.messageCount > 0
+            visible:                 _activeVehicle !== null
 
             function getIconColor() {
                 let iconColor = qgcPal.text
@@ -232,16 +232,16 @@ RowLayout {
                     on_RgLinkNamesChanged:  updateComboModel()
                     on_RgLinkStatusChanged: updateComboModel()
 
-                    onActivated:    (index) => {
-                        _activeVehicle.vehicleLinkManager.primaryLinkName = _rgLinkNames[index]; currentIndex = -1
+                    onActivated: (index) => {
+                        _activeVehicle.vehicleLinkManager.primaryLinkName = _rgLinkNames[index]
+                        currentIndex = -1
                         mainWindow.closeIndicatorDrawer()
                     }
                 }
             }
 
             SettingsGroupLayout {
-                //Layout.fillWidth:   true
-                heading:            qsTr("Vehicle Messages")
+                heading: qsTr("Vehicle Messages")
 
                 VehicleMessageList {
                     id: vehicleMessageList
@@ -255,9 +255,8 @@ RowLayout {
             }
 
             SettingsGroupLayout {
-                //Layout.fillWidth:   true
-                heading:            qsTr("Sensor Status")
-                visible:            parametersReady && !_healthAndArmingChecksSupported
+                heading: qsTr("Sensor Status")
+                visible: parametersReady && !_healthAndArmingChecksSupported
 
                 GridLayout {
                     rowSpacing:     _spacing
@@ -278,11 +277,9 @@ RowLayout {
             }
 
             SettingsGroupLayout {
-                //Layout.fillWidth:   true
-                heading:            qsTr("Overall Status")
-                visible:            parametersReady && _healthAndArmingChecksSupported && _activeVehicle.healthAndArmingCheckReport.problemsForCurrentMode.count > 0
+                heading: qsTr("Overall Status")
+                visible: parametersReady && _healthAndArmingChecksSupported && _activeVehicle.healthAndArmingCheckReport.problemsForCurrentMode.count > 0
 
-                // List health and arming checks
                 Repeater {
                     model:      _activeVehicle ? _activeVehicle.healthAndArmingCheckReport.problemsForCurrentMode : null
                     delegate:   listdelegate
@@ -300,7 +297,8 @@ RowLayout {
                             id:           message
                             text:         object.message
                             textFormat:   TextEdit.RichText
-                            color:        object.severity == 'error' ? qgcPal.colorRed : object.severity == 'warning' ? qgcPal.colorOrange : qgcPal.text
+                            color:        object.severity == "error" ? qgcPal.colorRed : object.severity == "warning" ? qgcPal.colorOrange : qgcPal.text
+
                             MouseArea {
                                 anchors.fill: parent
                                 onClicked: {
@@ -318,9 +316,10 @@ RowLayout {
                             source:                 "/qmlimages/arrow-down.png"
                             color:                  qgcPal.text
                             visible:                object.description != ""
+
                             MouseArea {
-                                anchors.fill:       parent
-                                onClicked:          object.expanded = !object.expanded
+                                anchors.fill: parent
+                                onClicked:    object.expanded = !object.expanded
                             }
                         }
                     }
@@ -335,14 +334,14 @@ RowLayout {
                         property var fact:  null
 
                         onLinkActivated: (link) => {
-                            if (link.startsWith('param://')) {
-                                var paramName = link.substr(8);
+                            if (link.startsWith("param://")) {
+                                var paramName = link.substr(8)
                                 fact = controller.getParameterFact(-1, paramName, true)
                                 if (fact != null) {
                                     paramEditorDialogFactory.open()
                                 }
                             } else {
-                                Qt.openUrlExternally(link);
+                                Qt.openUrlExternally(link)
                             }
                         }
 
@@ -352,7 +351,6 @@ RowLayout {
 
                         QGCPopupDialogFactory {
                             id: paramEditorDialogFactory
-
                             dialogComponent: paramEditorDialogComponent
                         }
 
@@ -406,7 +404,7 @@ RowLayout {
                 GridLayout {
                     columns:            2
                     rowSpacing:         ScreenTools.defaultFontPixelHeight / 2
-                    columnSpacing:      ScreenTools.defaultFontPixelWidth *2
+                    columnSpacing:      ScreenTools.defaultFontPixelWidth * 2
                     Layout.fillWidth:   true
 
                     QGCLabel { Layout.fillWidth: true; text: qsTr("Vehicle Parameters") }

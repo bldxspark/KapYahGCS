@@ -1,4 +1,4 @@
-package org.mavlink.qgroundcontrol;
+package com.kapyah.gcs;
 
 import com.hoho.android.usbserial.driver.CdcAcmSerialDriver;
 import com.hoho.android.usbserial.driver.ProbeTable;
