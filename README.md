@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/bldxspark/KapYahGCS/main/resources/KapYahGCS.png" alt="KapYah GCS Logo" width="500">
+  <img src="https://raw.githubusercontent.com/bldxspark/KapYahGCS/main/resources/KapYahGCS.png" alt="KapYah GCS Logo" width="250">
 </p>
 
 ---
@@ -69,31 +69,31 @@ KapYah Ground Control provides:
 ### Home Screen
 
 <p align="center">
-  <img src="resources/screenshots/kapyah-home.jpg" width="250"/>
+  <img src="resources/screenshots/kapyah-home.jpg" width="500"/>
 </p>
 
 ### Home (Connected State)
 
 <p align="center">
-  <img src="resources/screenshots/kapyah-home-connected.jpg" width="250"/>
+  <img src="resources/screenshots/kapyah-home-connected.jpg" width="500"/>
 </p>
 
 ### Home (Dark Mode)
 
 <p align="center">
-  <img src="resources/screenshots/kapyah-home-dark.jpg" width="250"/>
+  <img src="resources/screenshots/kapyah-home-dark.jpg" width="500"/>
 </p>
 
 ### Settings Screen
 
 <p align="center">
-  <img src="resources/screenshots/kapyah-settings.jpg" width="250"/>
+  <img src="resources/screenshots/kapyah-settings.jpg" width="500"/>
 </p>
 
 ### Settings (Dark Mode)
 
 <p align="center">
-  <img src="resources/screenshots/kapyah-settings-dark.jpg" width="250"/>
+  <img src="resources/screenshots/kapyah-settings-dark.jpg" width="500"/>
 </p>
 
 ## Core Features
