@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <p align="center">
   <img src="https://raw.githubusercontent.com/bldxspark/KapYahGCS/main/resources/KapYahGCS.png" alt="KapYah GCS Logo" width="500">
 </p>
@@ -15,7 +14,7 @@ This software is part of the KapYah product ecosystem and is intended to support
 
 ## Download
 
-- [View Latest Release](https://github.com/bldxspark/KapYahGCS/releases)
+- [View Latest Release](https://github.com/bldxspark/KapYahGCS/releases)  
 - APK: `KapYah-GCS-v1.0.0.apk`
 
 ### Android Installation Note
@@ -23,21 +22,21 @@ This software is part of the KapYah product ecosystem and is intended to support
 When installing the APK manually, Android may show a warning such as *"App not installed"* or block installation.
 
 This can occur due to:
-- unsigned or newly signed APKs
-- restricted install permissions
-- Play Protect warnings
+- unsigned or newly signed APKs  
+- restricted install permissions  
+- Play Protect warnings  
 
 If you trust the source:
-- enable **Install from unknown sources**
-- allow installation via USB (if using ADB)
-- proceed with installation when prompted
+- enable **Install from unknown sources**  
+- allow installation via USB (if using ADB)  
+- proceed with installation when prompted  
 
 ---
 
 ## Company
 
-- Company: **KapYah Industries Pvt. Ltd.**
-- Website: `https://www.kapyah.com/`
+- Company: **KapYah Industries Pvt. Ltd.**  
+- Website: https://www.kapyah.com/  
 - Product: **KapYah Ground Control**
 
 ---
@@ -64,6 +63,38 @@ KapYah Ground Control provides:
 - integrated logging and diagnostics support  
 
 ---
+
+## Screenshots
+
+### Home Screen
+
+<p align="center">
+  <img src="resources/screenshots/kapyah-home.jpg" width="250"/>
+</p>
+
+### Home (Connected State)
+
+<p align="center">
+  <img src="resources/screenshots/kapyah-home-connected.jpg" width="250"/>
+</p>
+
+### Home (Dark Mode)
+
+<p align="center">
+  <img src="resources/screenshots/kapyah-home-dark.jpg" width="250"/>
+</p>
+
+### Settings Screen
+
+<p align="center">
+  <img src="resources/screenshots/kapyah-settings.jpg" width="250"/>
+</p>
+
+### Settings (Dark Mode)
+
+<p align="center">
+  <img src="resources/screenshots/kapyah-settings-dark.jpg" width="250"/>
+</p>
 
 ## Core Features
 
@@ -110,8 +141,8 @@ This project includes multiple enhancements such as:
 
 ## Ownership
 
-- Product owner: **KapYah Industries Pvt. Ltd.**
-- Product identity and branding: **KapYah Industries Pvt. Ltd.**
+- Product owner: **KapYah Industries Pvt. Ltd.**  
+- Product identity and branding: **KapYah Industries Pvt. Ltd.**  
 - Primary developer: **Durgesh Tiwari**
 
 ---
@@ -139,18 +170,15 @@ Only source, configuration, and required assets are maintained.
 
 ## License
 
-This project follows applicable licensing terms of its underlying components and associated dependencies.
+This project is dual-licensed under:
+
+- [Apache License 2.0](LICENSE_APACHE)  
+- [GNU General Public License v3.0](LICENSE_GPL)  
+
+This project includes components derived from the open-source QGroundControl project.
 
 ---
 
 ## Acknowledgment
 
 This project builds upon the open-source QGroundControl platform and follows its development and licensing guidelines.
-=======
-# KapYahGCS
-
-
-
-
-nice
->>>>>>> b1b5ea92e4f4b61797e7afa87b7aeae77db1c9d5
