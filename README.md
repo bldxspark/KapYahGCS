@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/bldxspark/KapYahGCS/main/resources/KapYahGCS.png" alt="KapYah GCS Logo" width="250">
+  <img src="https://raw.githubusercontent.com/bldxspark/KapYahGCS/main/resources/KapYahGCS.png" alt="KapYah GCS Logo" width="500">
 </p>
 
 ---
